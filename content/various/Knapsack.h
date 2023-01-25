@@ -2,10 +2,10 @@
  * Author: Markus Mathiasen
  * License: CC0
  * Source: https://en.wikipedia.org/wiki/Knapsack_problem
- * Description: Given N items with associated weight w_i and value v_i,
- * find items s.t. the sum of the weights is at most W, while maximizing the total value.
- * Time: O(N*W)
- * Status: Tested on kattis:knapsack
+ * Description: Given $N$ items with associated weight $w_i$ and value $v_i$,
+ * find items s.t. the sum of the weights is at most $W$, while maximizing the total value.
+ * Time: O($N\cdot W$)
+ * Status: Tested on kattis:knapsack and kattis:muzicari
  */
 #pragma once
 
