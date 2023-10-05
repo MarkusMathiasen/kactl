@@ -3,7 +3,7 @@
 #include "../../content/number-theory/ModLog.h"
 
 int main() {
-	const int lim = 100;
+	const ll lim = 100;
 	rep(m,1,lim) {
 		rep(a,0,lim) {
 			vector<ll> ans(m, -1);

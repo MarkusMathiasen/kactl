@@ -9,18 +9,18 @@
  */
 #pragma once
 
-const int MAX_DIST = 1e9;
+const ll MAX_DIST = 1e9;
 vector<vi> memo, nxt;
 vi tour;
-int dp(int v, int mask, vector<vi>& dist) {
+ll dp(ll v, ll mask, vector<vi>& dist) {
     if (mask == 0) return dist[v][0];
-    int& res = memo[v][mask];
+    ll& res = memo[v][mask];
     if (res != MAX_DIST) return res;
-    int m = mask;
+    ll m = mask;
     while (m) {
-        int u_pow = m&(-m);
-        int u = __builtin_ctz(u_pow)+1;
-        int val = dist[v][u] + dp(u, mask-u_pow, dist);
+        ll u_pow = m&(-m);
+        ll u = __builtin_ctzll(u_pow)+1;
+        ll val = dist[v][u] + dp(u, mask-u_pow, dist);
         if (val < res) {
             res = val;
             nxt[v][mask] = u;
@@ -29,12 +29,12 @@ int dp(int v, int mask, vector<vi>& dist) {
     }
     return res;
 }
-int tsp(vector<vi>& dist) {
-    int n = sz(dist);
+ll tsp(vector<vi>& dist) {
+    ll n = sz(dist);
     memo.assign(n, vi(1<<(n-1), MAX_DIST));
     nxt.assign(n, vi(1<<(n-1), -1));
-    int res = dp(0, (1<<(n-1))-1, dist);
-    int p = 0, mask = (1<<(n-1))-1;
+    ll res = dp(0, (1<<(n-1))-1, dist);
+    ll p = 0, mask = (1<<(n-1))-1;
     while (mask) {
         tour.push_back(p);
         p = nxt[p][mask];

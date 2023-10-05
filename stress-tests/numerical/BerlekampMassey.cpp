@@ -16,7 +16,7 @@ ll modpow(ll a, ll e) {
 #include "../../content/numerical/BerlekampMassey.h"
 
 template<class F>
-void gen(vector<ll>& v, int at, F f) {
+void gen(vector<ll>& v, ll at, F f) {
 	if (at == sz(v)) f();
 	else {
 		rep(i,0,mod) {
