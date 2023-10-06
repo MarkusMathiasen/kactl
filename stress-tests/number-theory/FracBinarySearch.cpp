@@ -6,7 +6,7 @@ int main() {
 	rep(n,1,300) {
 		vector<pair<double, pii>> v;
 		rep(i,0,n+1) rep(j,1,n+1) if (__gcd(i,j) == 1) {
-			double r = (double)i / j;
+			double r = (double)i / (double)j;
 			v.emplace_back(r, pii(i,j));
 		}
 		v.emplace_back(1e9, pii(0,0));

@@ -19,7 +19,7 @@ int main() {
 		count++;
 		su = su + P{x,y};
 	}
-	su = su / count;
+	su = su / (double)count;
 	double approxArea = (double)count / 100000 * 100;
 	assert(abs(polygonArea2(ps)/2.0 - approxArea) < 1);
 	auto p = polygonCenter(ps);

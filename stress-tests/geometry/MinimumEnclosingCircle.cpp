@@ -23,7 +23,7 @@ int main() {
 		assert(abs(maxDist - rad) < 1e-6);
 
 		rep(it2,0,50) {
-			P q2 = mid - P(0, 1e-6).rotate(it2);
+			P q2 = mid - P(0, 1e-6).rotate((double)it2);
 			for(auto &p: ps) {
 				if((p - q2).dist() > rad - 1e-7) goto fail;
 			}

@@ -38,8 +38,8 @@ int main() {
 				if (++iters == 100) goto skip;
 				rep(dx,-1,2) rep(dy,-1,2) {
 					P p = cur.second;
-					p.x += dx*jmp;
-					p.y += dy*jmp;
+					p.x += (double)dx*jmp;
+					p.y += (double)dy*jmp;
 					pair<double, P> np{func(p), p};
 					if (np < cur) cur = np, imp = 1;
 				}

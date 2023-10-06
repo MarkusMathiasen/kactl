@@ -46,7 +46,7 @@ vi mo(vector<pii> Q) {
 
 void test(ll n, ll q) {
 	curL = curR = ops = 0;
-	blk = max((ll)(n / sqrt(max\(q, 1ll\))), 1ll);
+	blk = max((ll)((double)n / sqrt(max(q, 1ll))), 1ll);
 	vector<pii> queries(q);
 	for (auto& pa : queries) {
 		pa.first = rand() % n;
@@ -66,7 +66,7 @@ void test(ll n, ll q) {
 	// (This inequality holds for random queries; in general it's off by a small constant)
 	if (n > 100 && q > 100) {
 		// cout << n << ' ' << q << ' ' << ops / (n * sqrt(q)) << endl;
-		assert(ops < n * sqrt(q));
+		assert((double)ops < (double)n * sqrt(q));
 	}
 }
 
@@ -116,7 +116,8 @@ vi moTree(vector<array<ll, 2>> Q, vector<vi>& ed, ll root=0){
 	for (ll qi : s) rep(end,0,2) {
 		ll &a = pos[end], b = Q[qi][end], i = 0;
 #define step(c) { if (in[c]) del(a, end), in[a] = 0; \
-                  else add(c, end), in[c] = 1; a = c; }
+                  else add(c, end), in[c] = 1; \
+				  a = c; }
 		while (!(L[b] <= L[a] && R[a] <= R[b]))
 			I[i++] = b, b = par[b];
 		while (a != b) step(par[a]);
@@ -130,7 +131,7 @@ vi moTree(vector<array<ll, 2>> Q, vector<vi>& ed, ll root=0){
 
 void testTr(ll n, ll q) {
 	ops = 0;
-	blk = max((ll)(n / sqrt(max\(q, 1ll\))), 1ll);
+	blk = max((ll)((double)n / sqrt(max(q, 1ll))), 1ll);
 	vector<array<ll, 2>> queries(q);
 	for (auto& pa : queries) {
 		pa[0] = rand() % n;

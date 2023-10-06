@@ -5,6 +5,7 @@
 #include "../../content/graph/EdmondsKarp.h"
 
 // Bump allocator, to speed the test up and get rid of malloc performance noise
+/*
 static char buf[1 << 23];
 static size_t bufi = sizeof buf;
 void* operator new(size_t s) {
@@ -12,10 +13,11 @@ void* operator new(size_t s) {
 	return (void*)&buf[bufi -= s];
 }
 void operator delete(void*) {}
+*/
 
 int main() {
 	rep(it,0,500000) {
-		bufi = sizeof buf;
+		//bufi = sizeof buf;
 		ll n = 2 + rand() % 10;
 		ll s = rand() % n;
 		ll t = rand() % (n - 1);

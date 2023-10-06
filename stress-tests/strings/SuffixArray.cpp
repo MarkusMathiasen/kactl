@@ -203,7 +203,7 @@ void stress(bool onlySmall = false) {
 		double work = large ? 1e7 : 5e5;
 		rep(alpha,1,27) {
 			rep(n,0,100) {
-				if (n * n * pow(alpha, n) > work) break;
+				if ((double)(n * n) * pow(alpha, n) > work) break;
 				// cout << alpha << ' ' << n << ": " << flush;
 				string s(n, 'x');
 				gen(s, 0, alpha, [&]() {

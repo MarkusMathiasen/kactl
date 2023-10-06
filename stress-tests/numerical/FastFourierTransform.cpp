@@ -13,7 +13,7 @@ int main() {
 	rep(k,0,n) {
 		C sum{};
 		rep(x,0,n) {
-			sum += aorig[x] * polar(1.0, 2 * M_PI * k * x / n);
+			sum += aorig[x] * polar(1.0, 2 * M_PI * (double)k * (double)x / (double)n);
 		}
 		assert(norm(sum - a[k]) < 1e-6);
 	}

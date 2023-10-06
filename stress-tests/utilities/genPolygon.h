@@ -19,10 +19,10 @@ template<class P> pair<bool, vector<P>> conquer(vector<P> pts, ll depth) {
     ll divideId = randRange(2, sz(pts));
     P p1 = pts[divideId];
     double divideK = randDouble(0.01, 0.99);
-    P p2(divideK*(pts[1].x-pts[0].x) + pts[0].x, divideK*(pts[1].y - pts[0].y) + pts[0].y);
-    vector<double> line = {p2.y - p1.y, p1.x - p2.x, -p1.x*p2.y + p1.y*p2.x};
-    ll idx0 = ((line[0]*pts[0].x + line[1]*pts[0].y + line[2]) >=0);
-    ll idx1 = ((line[0]*pts[1].x + line[1]*pts[1].y + line[2]) >=0);
+    P p2((ll)(divideK*(double)(pts[1].x-pts[0].x) + (double)pts[0].x), (ll)(divideK*(double)(pts[1].y - pts[0].y) + (double)pts[0].y));
+    vector<double> line = {(double)(p2.y - p1.y), (double)(p1.x - p2.x), (double)(-p1.x*p2.y + p1.y*p2.x)};
+    ll idx0 = ((line[0]*(double)pts[0].x + line[1]*(double)pts[0].y + line[2]) >=0);
+    ll idx1 = ((line[0]*(double)pts[1].x + line[1]*(double)pts[1].y + line[2]) >=0);
     if (idx0==idx1)
         return conquer(pts, depth+1);
     array<vector<P>, 2> S;
@@ -32,7 +32,7 @@ template<class P> pair<bool, vector<P>> conquer(vector<P> pts, ll depth) {
     S[!idx0].push_back(pts[1]);
     rep(i,2,sz(pts)) {
         if (i == divideId) continue;
-        ll idx = ((line[0]*pts[i].x + line[1]*pts[i].y + line[2]) >=0);
+        ll idx = ((line[0]*(double)pts[i].x + line[1]*(double)pts[i].y + line[2]) >=0);
         S[idx].push_back(pts[i]);
     }
     auto pa = conquer(S[idx0], depth+1);
@@ -55,7 +55,7 @@ template<class P> vector<P> genPolygon(vector<P> pts, ll depth=0) {
     S[1].push_back(pts[1]);
     S[1].push_back(pts[0]);
     rep(i,2,sz(pts)) {
-        ll idx = (line[0]*pts[i].x + line[1]*pts[i].y + line[2]) >=0;
+        ll idx = (line[0]*(double)(pts[i].x) + line[1]*(double)(pts[i].y) + line[2]) >=0;
         S[idx].push_back(pts[i]);
     }
     auto ta = conquer(S[0],0);

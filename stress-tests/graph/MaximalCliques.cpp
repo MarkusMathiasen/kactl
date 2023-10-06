@@ -73,7 +73,7 @@ int main2() {
 		}
 		ll co = 0, sum = 0;
 		cliques(ed, [&](B x) { co++; sum += (ll)x.count(); });
-		cout << co << ' ' << (double)sum / co << endl;
+		cout << co << ' ' << (double)sum / (double)co << endl;
 	}
 	return 0;
 }

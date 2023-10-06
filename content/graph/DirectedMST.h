@@ -16,8 +16,8 @@
 struct Edge { ll a, b; ll w; };
 struct Node { /// lazy skew heap node
 	Edge key;
-	Node *l, *r;
-	ll delta;
+	Node *l = nullptr, *r = nullptr;
+	ll delta = 0;
 	void prop() {
 		key.w += delta;
 		if (l) l->delta += delta;
@@ -42,7 +42,7 @@ pair<ll, vi> dmst(ll n, ll r, vector<Edge>& g) {
 	ll res = 0;
 	vi seen(n, -1), path(n), par(n);
 	seen[r] = r;
-	vector<Edge> Q(n), in(n, {-1,-1}), comp;
+	vector<Edge> Q(n), in(n, {-1,-1, 0}), comp;
 	deque<tuple<ll, ll, vector<Edge>>> cycs;
 	rep(s,0,n) {
 		ll u = s, qi = 0, w;

@@ -86,8 +86,8 @@ namespace approximate {
 double polygonUnion(vector<vector<P>> &polygons, ll lim) {
     ll cnt = 0;
     ll total = 0;
-    for (double y = -lim + 1e-5; y < lim; y += lim / 500.0) {
-        for (double x = -lim + 1.1e-5; x < lim; x += lim / 500.0) {
+    for (double y = (double)-lim + 1e-5; y < (double)lim; y += (double)lim / 500.0) {
+        for (double x = (double)-lim + 1.1e-5; x < (double)lim; x += (double)lim / 500.0) {
             total++;
             for (auto &i : polygons) {
                 if (inPolygon(i, P(x, y))) {
@@ -97,7 +97,7 @@ double polygonUnion(vector<vector<P>> &polygons, ll lim) {
             }
         }
     }
-    return lim * lim * 4 * cnt / double(total);
+    return (double)(lim * lim * 4 * cnt) / double(total);
 }
 } // namespace approximate
 
@@ -162,7 +162,7 @@ db polygon_union(vector<cpoi> py[], ll n) {
 }
 } // namespace lovelive
 
-P randPt(ll lim) { return P(randRange(-lim, lim), randRange(-lim, lim)); }
+P randPt(ll lim) { return P((double)randRange(-lim, lim), (double)randRange(-lim, lim)); }
 
 P rndUlp(ll lim, long long ulps = 5) { return P(randNearIntUlps(lim, ulps), randNearIntUlps(lim, ulps)); }
 
@@ -213,7 +213,7 @@ int main() {
     // ll s = (ll)time(0);
     ll s = 1;
     // cout << "seed " << s << endl;
-    srand(s);
+    srand((int)s);
     for (ll i = 0; i < 100; i++) {
         testRandom(2, 5, 5);
     }

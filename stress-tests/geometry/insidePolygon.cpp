@@ -43,10 +43,10 @@ void test(ll numPts, ll range) {
     rep(i,0,NUMPOLY) {
         vector<P> poly;
         rep(j,0, numPts)
-            poly.push_back(P(rand()%range, rand()%range));
+            poly.push_back(P((double)(rand()%range), (double)(rand()%range)));
         poly = genPolygon(poly);
         rep(i,0,PTPERPOLY){
-            P p(rand()%range, rand()%range);
+            P p((double)(rand()%range), (double)(rand()%range));
             assert(inPolygon(poly, p, true) == old::insidePolygon(all(poly), p, true));
             assert(inPolygon(poly, p, false) == old::insidePolygon(all(poly), p, false));
         }

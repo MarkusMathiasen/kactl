@@ -21,6 +21,6 @@ int main() {
 			assert(inv[i] == modpow(i, mod-2, mod));
 		}
 	}
-	cout<<"Tests pass!"<<endl;
+	cout<<"Tests passed!"<<endl;
 }
 

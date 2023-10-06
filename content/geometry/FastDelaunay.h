@@ -22,7 +22,7 @@ typedef __int128_t lll; // (can be ll if coords are < 2e4)
 P arb(LLONG_MAX,LLONG_MAX); // not equal to any other point
 
 struct Quad {
-	Q rot, o; P p = arb; bool mark;
+	Q rot, o = 0; P p = arb; bool mark = false;
 	P& F() { return r()->p; }
 	Q& r() { return rot->rot; }
 	Q prev() { return rot->o->rot; }

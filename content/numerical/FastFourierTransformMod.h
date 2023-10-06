@@ -19,15 +19,15 @@ typedef vector<ll> vl;
 template<ll M> vl convMod(const vl &a, const vl &b) {
 	if (a.empty() || b.empty()) return {};
 	vl res(sz(a) + sz(b) - 1);
-	ll B=32-__builtin_clzll(sz(res)), n=1<<B, cut=int(sqrt(M));
+	ll B=64-__builtin_clzll(sz(res)), n=1<<B, cut=ll(sqrt(M));
 	vector<C> L(n), R(n), outs(n), outl(n);
-	rep(i,0,sz(a)) L[i] = C((ll)a[i] / cut, (ll)a[i] % cut);
-	rep(i,0,sz(b)) R[i] = C((ll)b[i] / cut, (ll)b[i] % cut);
+	rep(i,0,sz(a)) L[i] = C(double((ll)a[i] / cut), double((ll)a[i] % cut));
+	rep(i,0,sz(b)) R[i] = C(double((ll)b[i] / cut), double((ll)b[i] % cut));
 	fft(L), fft(R);
 	rep(i,0,n) {
 		ll j = -i & (n - 1);
-		outl[j] = (L[i] + conj(L[j])) * R[i] / (2.0 * n);
-		outs[j] = (L[i] - conj(L[j])) * R[i] / (2.0 * n) / 1i;
+		outl[j] = (L[i] + conj(L[j])) * R[i] / (2.0 * (double)n);
+		outs[j] = (L[i] - conj(L[j])) * R[i] / (2.0 * (double)n) / 1i;
 	}
 	fft(outl), fft(outs);
 	rep(i,0,sz(res)) {

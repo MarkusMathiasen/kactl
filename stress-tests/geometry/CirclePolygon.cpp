@@ -47,14 +47,14 @@ signed main() {
         auto polyInt = genPolygon(pts);
 
         ll cx = rand()%lim, cy = rand()%lim;
-        auto c = P(cx, cy);
+        auto c = P((double)cx, (double)cy);
         auto c2 = orig::P(cx, cy);
         double r= rand()%(2*lim);
 
         vector<P> poly;
         vector<orig::P> poly2;
         for (auto j: polyInt) {
-            poly.push_back(P(j.x, j.y));
+            poly.push_back(P((double)j.x, (double)j.y));
             poly2.push_back(orig::P(j.x, j.y));
         }
         auto res1 = circlePoly(c, r, poly);

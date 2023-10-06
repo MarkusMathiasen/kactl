@@ -10,7 +10,8 @@ pair<vi, vi> ulHull(const vector<P>& S) {
 	sort(all(Q), [&S](ll a, ll b){ return S[a] < S[b]; });
 	for(auto &it: Q) {
 #define ADDP(C, cmp) while (sz(C) > 1 && S[C[sz(C)-2]].cross(\
-	S[it], S[C.back()]) cmp 0) C.pop_back(); C.push_back(it);
+	S[it], S[C.back()]) cmp 0) C.pop_back(); \
+    C.push_back(it);
 		ADDP(U, <=); ADDP(L, >=);
 	}
 	return {U, L};

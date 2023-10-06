@@ -76,7 +76,7 @@ struct HLD {
 	pii dfs(ll at, ll par, vector<vpi>& g, ll d) {
 		V[at].d = d; V[at].par = par;
 		ll sum = 1, ch, nod, sz;
-		tuple<ll,int,ll> mx(-1,-1,-1);
+		tuple<ll,ll,ll> mx(-1,-1,-1);
 		for(auto &e: g[at]){
 			if (e.first == par) continue;
 			tie(sz, ch) = dfs(e.first, at, g, d+1);

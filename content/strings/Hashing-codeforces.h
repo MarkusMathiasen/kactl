@@ -16,10 +16,10 @@ static ll C; // initialized below
 // "typedef uint64_t H;" instead if Thue-Morse does not apply.
 template<ll M, class B>
 struct A {
-	ll x; B b; A(ll x=0) : x(x), b(x) {}
+	ll x; B b; A(ll x=0) : x(x), b((int)x) {}
 	A(ll x, B b) : x(x), b(b) {}
-	A operator+(A o){int y = x+o.x; return{y - (y>=M)*M, b+o.b};}
-	A operator-(A o){int y = x-o.x; return{y + (y< 0)*M, b-o.b};}
+	A operator+(A o){ll y = x+o.x; return{y - (y>=M)*M, b+o.b};}
+	A operator-(A o){ll y = x-o.x; return{y + (y< 0)*M, b-o.b};}
 	A operator*(A o) { return {(ll)(1LL*x*o.x % M), b*o.b}; }
 	explicit operator ull() { return x ^ (ull) b << 21; }
 	bool operator==(A o) const { return (ull)*this == (ull)o; }

@@ -1,5 +1,5 @@
 #pragma once
-#include <cstdll>
+//#include <cstdll>
 #include <cassert>
 
 // returns random ll in [0, hi), like Python's random.randrange
@@ -106,12 +106,12 @@ double addUlps(double x, int64_t y) {
 
 // random ll in [-lim, lim], perturbed by a few ulps
 double randNearIntUlps(ll lim, int64_t ulps = 5) {
-    return addUlps(randIncl(-lim, lim), randIncl(-ulps, ulps));
+    return addUlps((double)randIncl(-lim, lim), randIncl(-ulps, ulps));
 }
 
 // random ll in [-lim, lim], perturbed by a random double in [-eps, eps]
 double randNearIntEps(ll lim, double eps) {
-    return randIncl(-lim, lim) + randDouble(-eps, eps);
+    return (double)randIncl(-lim, lim) + randDouble(-eps, eps);
 }
 
 // like random_shuffle but uses rand() as RNG source
