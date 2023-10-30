@@ -11,7 +11,7 @@
 
 struct Tree {
 	typedef ll T;
-	static constexpr T unit = INT_MIN;
+	static constexpr T unit = LLONG_MIN;
 	T f(T a, T b) { return max(a, b); } // (any associative fn)
 	vector<T> s; ll n;
 	Tree(ll n = 0, T def = unit) : s(2*n, def), n(n) {}
