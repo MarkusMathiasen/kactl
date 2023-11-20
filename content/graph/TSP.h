@@ -1,11 +1,11 @@
 /**
  * Author: Markus Mathiasen
- * License: CC0
+ * License: UPL
  * Source: Competetive Programming 4 (book 1)
  * Description: Give a distance matrix, computes the shortest Hamiltonian cycle,
- * finding the optimal solution to TSP. One example of such tour is saved in variable tour.
+ * finding the optimal solution to TSP.
  * Time: O(2^N N^2)
- * Status: Tested on kattis:beepers
+ * Status: Tested on kattis:beepers TODO: stress-test
  */
 #pragma once
 
