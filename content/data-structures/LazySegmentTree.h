@@ -17,13 +17,13 @@
 const ll inf = 1e9;
 struct Node {
 	Node *l = 0, *r = 0;
-	ll lo, hi, mset = inf, madd = 0, val = -inf;
+	ll lo, hi, mset = inf, madd = 0, val = 0;
 	Node(ll lo, ll hi):lo(lo),hi(hi){} // Large interval of -inf
 	Node(vi& v, ll lo, ll hi) : lo(lo), hi(hi) {
 		if (lo + 1 < hi) {
 			ll mid = lo + (hi - lo)/2;
 			l = new Node(v, lo, mid); r = new Node(v, mid, hi);
-			val = max(l->val, r->val);
+			val = l->val + r->val;
 		}
 		else val = v[lo];
 	}

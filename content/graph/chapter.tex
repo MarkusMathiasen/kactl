@@ -13,7 +13,7 @@
 	\kactlimport{Dinic.h}
 	\kactlimport{MinCut.h}
 	\kactlimport{GlobalMinCut.h}
-	% \kactlimport{GomoryHu.h}
+	\kactlimport{GomoryHu.h}
 
 \section{Matching}
 	\kactlimport{hopcroftKarp.h}
@@ -34,7 +34,7 @@
 \section{Heuristics}
 	\kactlimport{MaximalCliques.h}
 	\kactlimport{MaximumClique.h}
-	% \kactlimport{MaximumIndependentSet.h}
+	\kactlimport{MaximumIndependentSet.h}
 
 \section{Trees}
 	\kactlimport{BinaryLifting.h}
@@ -53,6 +53,7 @@
 		\texttt{mat[a][b]--, mat[b][b]++} (and \texttt{mat[b][a]--, mat[a][a]++} if $G$ is undirected).
 		Remove the $i$th row and column and take the determinant; this yields the number of directed spanning trees rooted at $i$
 		(if $G$ is undirected, remove any row/column).
+		\vspace{2em}
 
 	\subsection{Erdős–Gallai theorem}
 		% Source: https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gallai_theorem
