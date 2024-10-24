@@ -6,9 +6,9 @@ for (( i=1; i<=$1; ++i )) do
   ./smart.out < test.txt > smart_out.txt
   if [[ $(diff stupid_out.txt smart_out.txt) ]]
   then
-    echo "$(diff -Z supid_out.txt smart_out.txt)" > diff.txt
-    echo "WA on test $i\nTESTS FAILED!"
-    break
+    echo "$(diff -Z stupid_out.txt smart_out.txt)" > diff.txt
+    printf "WA on test $i\nTESTS FAILED!\n"
+    exit 0
   else echo "AC on test $i"
 fi done
 echo "TESTS PASSED!"
